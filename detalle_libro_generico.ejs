@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title><%= libro.nombre %> - Detalles</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e6e6fa; /* Lavanda suave */
+            color: #2c3e50; /* Azul oscuro (buena legibilidad) */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .volver {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #95a5a6;
+            color: #fff;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .volver:hover {
+            background-color: #7f8c8d;
+            transform: scale(1.05);
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .card img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2.2em;
+            color: #4b0082; /* Índigo profundo para contraste */
+        }
+
+        .info {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .descripcion {
+            background-color: rgba(230, 230, 250, 0.4);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .botones a {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            color: #fff;
+        }
+
+        .comprar {
+            background-color: #1abc9c; /* Verde menta intenso */
+        }
+
+        .comprar:hover {
+            background-color: #16a085;
+            transform: scale(1.05);
+        }
+
+        .carrito {
+            background-color: #3498db; /* Azul claro */
+        }
+
+        .carrito:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="/menu_principal" class="volver">← Volver</a>
+
+    <div class="card">
+        
+        <h1><%= libro.nombre %></h1>
+
+        <p class="info"><strong>Autor:</strong> <%= libro.autor %></p>
+        <p class="info"><strong>Categoría:</strong> <%= libro.categoria %></p>
+
+        <div class="descripcion">
+            <%= libro.descripcion %>
+        </div>
+
+        <div class="botones">
+            <a href="/comprar?id=<%= libro.id %>" class="comprar">Comprar</a>
+            <a href="/carrito_usua?agregar=<%= libro.id %>" class="carrito">Agregar al carrito</a>
+        </div>
+    </div>
+
+</body>
+</html>
